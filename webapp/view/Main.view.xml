@@ -1,0 +1,171 @@
+<mvc:View controllerName="fi0011.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:ui="sap.ui.table"
+    xmlns:u="sap.ui.unified">
+    <f:DynamicPage id="fi0011.main" preserveHeaderStateOnScroll="true" class="sapUiResponsiveContentPadding">
+        <f:header>
+            <f:DynamicPageHeader>
+                <smartFilterBar:SmartFilterBar
+                    id="fi0011.smartFilterBar"
+                    entitySet="ZFI_C_0011_01"
+                    persistencyKey="fi0011_smartFilterBar"
+                    search=".onSearch">
+                    <smartFilterBar:controlConfiguration>
+                        <smartFilterBar:ControlConfiguration
+                            key="PostingYear"
+                            mandatory="mandatory"
+                            filterType="single"
+                            index="1"
+                            visibleInAdvancedArea="true"
+                            preventInitialDataFetchInValueHelpDialog="false">
+                        </smartFilterBar:ControlConfiguration>
+
+                        <smartFilterBar:ControlConfiguration
+                            key="SalesOffice"
+                            index="2"
+                            visibleInAdvancedArea="true"
+                            preventInitialDataFetchInValueHelpDialog="false">
+						</smartFilterBar:ControlConfiguration>
+
+                        <smartFilterBar:ControlConfiguration
+                            key="Customer"
+                            index="3"
+                            visibleInAdvancedArea="true"
+                            preventInitialDataFetchInValueHelpDialog="false">
+						</smartFilterBar:ControlConfiguration>
+                    </smartFilterBar:controlConfiguration>
+                    <smartFilterBar:layoutData>
+                        <FlexItemData shrinkFactor="0" />
+                    </smartFilterBar:layoutData>
+                </smartFilterBar:SmartFilterBar>
+            </f:DynamicPageHeader>
+        </f:header>
+
+        <f:content>
+            <ui:TreeTable
+                id="fi0011.treeTable"
+                enableColumnReordering="false"
+                rows="{
+                    path : '/ZFI_C_0011_01',
+                    parameters : {
+                        countMode: 'Inline',
+                        treeAnnotationProperties : {
+                            hierarchyLevelFor : 'HierarchyLevel',
+                            hierarchyNodeFor : 'NodeID',
+                            hierarchyParentNodeFor : 'ParentNodeID',
+                            hierarchyDrillStateFor : 'DrillState'
+                        }
+                    }
+                }"
+                rowMode="Auto"
+                selectionMode="None">
+                <ui:extension>
+                    <OverflowToolbar style="Standard" height="3rem">
+                        <Label text="기준년도" />
+                        <Input id="fi0011.postingYear" width="10rem" editable="false"/>
+                        <Label text="영업소" />
+                        <Input id="fi0011.salesOffice" width="10rem" editable="false" />
+                        <Label text="거래처" />
+                        <Input id="fi0011.customer" width="10rem" editable="false" />
+                    </OverflowToolbar>
+                </ui:extension>
+                <ui:columns>
+                    <ui:Column width="10rem">
+                        <Label text="영업소" />
+                        <ui:template>
+                            <Text text="{Description1}" />
+                        </ui:template>
+                    </ui:Column>
+                    <ui:Column width="10rem">
+                        <Label text="영업소명" />
+                        <ui:template>
+                            <Text text="{Description2}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Right" width="10rem">
+                        <Label text="1월" />
+                        <ui:template>
+                            <Text text="{ parts: [ { path: 'January' }, { path: 'TransactionCurrency' } ], formatter: '.currencyFormat' }" />
+                        </ui:template>
+                    </ui:Column>
+                    <ui:Column hAlign="Right" width="10rem">
+                        <Label text="2월" />
+                        <ui:template>
+                            <Text text="{ parts: [ { path: 'February' }, { path: 'TransactionCurrency' } ], formatter: '.currencyFormat' }" />
+                        </ui:template>
+                    </ui:Column>
+                    <ui:Column hAlign="Right" width="10rem">
+                        <Label text="3월" />
+                        <ui:template>
+                            <Text text="{ parts: [ { path: 'March' }, { path: 'TransactionCurrency' } ], formatter: '.currencyFormat' }" />
+                        </ui:template>
+                    </ui:Column>
+                    <ui:Column hAlign="Right" width="10rem">
+                        <Label text="4월" />
+                        <ui:template>
+                            <Text text="{ parts: [ { path: 'April' }, { path: 'TransactionCurrency' } ], formatter: '.currencyFormat' }" />
+                        </ui:template>
+                    </ui:Column>
+                    <ui:Column hAlign="Right" width="10rem">
+                        <Label text="5월" />
+                        <ui:template>
+                            <Text text="{ parts: [ { path: 'May' }, { path: 'TransactionCurrency' } ], formatter: '.currencyFormat' }" />
+                        </ui:template>
+                    </ui:Column>
+                    <ui:Column hAlign="Right" width="10rem">
+                        <Label text="6월" />
+                        <ui:template>
+                            <Text text="{ parts: [ { path: 'June' }, { path: 'TransactionCurrency' } ], formatter: '.currencyFormat' }" />
+                        </ui:template>
+                    </ui:Column>
+                    <ui:Column hAlign="Right" width="10rem">
+                        <Label text="7월" />
+                        <ui:template>
+                            <Text text="{ parts: [ { path: 'July' }, { path: 'TransactionCurrency' } ], formatter: '.currencyFormat' }" />
+                        </ui:template>
+                    </ui:Column>
+                    <ui:Column hAlign="Right" width="10rem">
+                        <Label text="8월" />
+                        <ui:template>
+                            <Text text="{ parts: [ { path: 'August' }, { path: 'TransactionCurrency' } ], formatter: '.currencyFormat' }" />
+                        </ui:template>
+                    </ui:Column>
+                    <ui:Column hAlign="Right" width="10rem">
+                        <Label text="9월" />
+                        <ui:template>
+                            <Text text="{ parts: [ { path: 'September' }, { path: 'TransactionCurrency' } ], formatter: '.currencyFormat' }" />
+                        </ui:template>
+                    </ui:Column>
+                    <ui:Column hAlign="Right" width="10rem">
+                        <Label text="10월" />
+                        <ui:template>
+                            <Text text="{ parts: [ { path: 'October' }, { path: 'TransactionCurrency' } ], formatter: '.currencyFormat' }" />
+                        </ui:template>
+                    </ui:Column>
+                    <ui:Column hAlign="Right" width="10rem">
+                        <Label text="11월" />
+                        <ui:template>
+                            <Text text="{ parts: [ { path: 'November' }, { path: 'TransactionCurrency' } ], formatter: '.currencyFormat' }" />
+                        </ui:template>
+                    </ui:Column>
+                    <ui:Column hAlign="Right" width="10rem">
+                        <Label text="12월" />
+                        <ui:template>
+                            <Text text="{ parts: [ { path: 'December' }, { path: 'TransactionCurrency' } ], formatter: '.currencyFormat' }" />
+                        </ui:template>
+                    </ui:Column>
+                    <ui:Column hAlign="Right" width="10rem">
+                        <Label text="합계" />
+                        <ui:template>
+                            <Text text="{ parts: [ { path: 'Total' }, { path: 'TransactionCurrency' } ], formatter: '.currencyFormat' }" />
+                        </ui:template>
+                    </ui:Column>
+                </ui:columns>
+            </ui:TreeTable>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>
